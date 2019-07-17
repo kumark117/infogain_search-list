@@ -1,6 +1,20 @@
 import React, { Component } from 'react';
-//import { Grid } from 'semantic-ui-react'
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
+
+import BootstrapTable from 'react-bootstrap-table-next';
+
+const columns = [{
+  dataField: '_id',
+  text: 'ID'
+}, {
+  dataField: 'name',
+  text: 'Name'
+}, {
+  dataField: 'gender',
+  text: 'Gender'
+}];
 
 /* 
  */
@@ -15,17 +29,19 @@ render() {
 
 	return (<div> 
 			Results!!<br/>
-			{ this.table_helper(this.props.results) 
+			{ //this.table_helper(this.props.results) 
+  			<BootstrapTable keyField='_id' data={ this.props.results} columns={ columns } bordered={true} />
 			}
 		</div>);
 
 }
 
+/********************
 table_helper(dim2arr) {
  return (
-	<table>
+	<Table responsive={true} bordered={true}>
 	{dim2arr.map((rowObj) => {return this.row_helper(rowObj)})}
-	</table>
+	</Table>
 );
 }
 
@@ -42,6 +58,6 @@ row_helper(rowObj) {
 		</tr>
 	);
 }
-
+*******************/
 }
 
